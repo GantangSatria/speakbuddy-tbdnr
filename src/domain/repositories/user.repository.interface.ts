@@ -5,6 +5,6 @@ export interface IUserRepository {
   findByEmail(email: string): Promise<User | null>;
   findAllTherapists(): Promise<User[]>;
   create(data: Omit<User, 'id' | 'created_at' | 'updated_at'>): Promise<User>;
-  update(id: string, data: Partial<User>): Promise<User | null>;
+  update(id: string, data: Partial<User>): Promise<User>;
   delete(id: string): Promise<void>;
 }
