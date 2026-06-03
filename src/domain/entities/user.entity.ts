@@ -1,3 +1,14 @@
+export enum Role {
+  PARENT = 'parent',
+  THERAPIST = 'therapist',
+}
+
+export enum SpeechLevel {
+  BEGINNER = 'beginner',
+  INTERMEDIATE = 'intermediate',
+  ADVANCED = 'advanced',
+}
+
 export interface UserProfile {
   phone?: string;
   age?: number;
@@ -11,7 +22,7 @@ export interface UserChild {
   child_name?: string;
   child_age?: number;
   child_sex?: string;
-  speech_level?: 'beginner' | 'intermediate' | 'advanced';
+  speech_level?: SpeechLevel;
 }
 
 export class User {
@@ -19,7 +30,7 @@ export class User {
   name!: string;
   email!: string;
   password_hash!: string;
-  role!: 'parent' | 'therapist';
+  role!: Role;
   profile?: UserProfile;
   child?: UserChild; // hanya untuk role = 'parent'
   created_at?: Date;

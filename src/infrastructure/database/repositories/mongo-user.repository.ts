@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { IUserRepository } from '../../../domain/repositories/user.repository.interface';
 import { User } from '../../../domain/entities/user.entity';
-import { UserDocument } from '../schemas/user.schema';
+import { Role, UserDocument } from '../schemas/user.schema';
 import { UserMapper } from '../mappers/user.mapper';
 
 @Injectable()
@@ -27,7 +27,7 @@ export class MongoUserRepository implements IUserRepository {
   }
 
   async findAllTherapists(): Promise<User[]> {
-    const docs = await this.model.find({ role: 'therapist' }).lean().exec();
+    const docs = await this.model.find({ role: Role.THERAPIST }).lean().exec();
     return docs.map(UserMapper.toDomain);
   }
 
