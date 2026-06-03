@@ -5,5 +5,5 @@ export interface IConsultationRepository {
   findById(id: string): Promise<Consultation | null>;
   findByUserId(userId: string): Promise<Consultation[]>;
   findByTherapistId(therapistId: string): Promise<Consultation[]>;
-  update(id: string, data: Partial<Consultation>): Promise<Consultation | null>;
+  update(id: string, data: Partial<Consultation>): Promise<Consultation>;
 }
