@@ -1,4 +1,9 @@
-export type ConsultationStatus = 'pending' | 'paid' | 'completed' | 'cancelled';
+export enum ConsultationStatus {
+  PENDING = 'pending',
+  PAID = 'paid',
+  COMPLETED = 'completed',
+  CANCELLED = 'cancelled',
+}
 
 export class Consultation {
   id!: string;

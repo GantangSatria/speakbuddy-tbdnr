@@ -41,7 +41,7 @@ export class CreateConsultationUseCase {
       is_paid: false,
       fee: input.fee ?? therapist.profile?.fee,
       payment_method: input.payment_method,
-      status: 'pending',
+      status: ConsultationStatus.PENDING,
     });
   }
 }
@@ -93,7 +93,7 @@ export class UpdateConsultationUseCase {
       ...(input.payment_method && { payment_method: input.payment_method }),
       ...(input.status && { status: input.status }),
     });
-    
+
     return updated;
   }
 }
