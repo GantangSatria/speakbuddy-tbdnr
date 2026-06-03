@@ -2,13 +2,13 @@ import { ConflictException, Inject, Injectable } from '@nestjs/common';
 import { TOKENS } from '../../../shared/injection-tokens';
 import type { IUserRepository } from '../../../domain/repositories/user.repository.interface';
 import type { IHashService } from '../../ports/hash.port';
-import { User } from '../../../domain/entities/user.entity';
+import { Role, User } from '../../../domain/entities/user.entity';
 
 export interface RegisterInput {
   name: string;
   email: string;
   password: string;
-  role: 'parent' | 'therapist';
+  role: Role;
 }
 
 export type RegisterOutput = Omit<User, 'password_hash'>;

@@ -1,9 +1,5 @@
 import { IsEmail, IsEnum, IsNotEmpty, IsString, MinLength } from 'class-validator';
-
-export enum UserRole {
-  PARENT = 'parent',
-  THERAPIST = 'therapist',
-}
+import { Role } from '../../domain/entities/user.entity';
 
 export class RegisterDto {
   @IsNotEmpty()
@@ -17,8 +13,8 @@ export class RegisterDto {
   @MinLength(6, { message: 'Password minimal 6 karakter' })
   password!: string;
 
-  @IsEnum(UserRole)
-  role!: UserRole;
+  @IsEnum(Role)
+  role!: Role;
 }
 
 export class LoginDto {

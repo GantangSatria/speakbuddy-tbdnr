@@ -1,6 +1,6 @@
 import { IsArray, IsEnum, IsNotEmpty, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
-import { ExerciseLevel } from 'src/domain/entities/exercise.entity';
+import { ExerciseLevel } from '../../domain/entities/exercise.entity';
 
 export class ExerciseItemDto {
   @IsNumber() item_number!: number;
