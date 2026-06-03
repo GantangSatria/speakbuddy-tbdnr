@@ -1,5 +1,5 @@
 import { IsBoolean, IsDateString, IsEnum, IsMongoId, IsNumber, IsOptional, IsString } from 'class-validator';
-import { ConsultationStatus } from 'src/domain/entities/consultation.entity';
+import { ConsultationStatus } from '../../domain/entities/consultation.entity';
 
 export class CreateConsultationDto {
   @IsMongoId() therapist_user_id!: string;
