@@ -12,6 +12,9 @@ import {
   GetAccuracyStatsUseCase,
   GetGlobalStatsUseCase,
 } from '../application/use-cases/exercise-attempts/attempt.use-cases';
+import { EvaluateAttemptUseCase } from '../application/use-cases/exercise-attempts/evaluate-attempt.use-case';
+import { GoogleSttService } from '../infrastructure/services/stt/google-stt.service';
+import { GeminiAiService } from '../infrastructure/services/ai/gemini-ai.service';
 import { ExerciseAttemptsController } from '../presentation/controllers/exercise-attempts.controller';
 
 @Module({
@@ -30,6 +33,9 @@ import { ExerciseAttemptsController } from '../presentation/controllers/exercise
     GetMyAttemptsUseCase,
     GetAccuracyStatsUseCase,
     GetGlobalStatsUseCase,
+    EvaluateAttemptUseCase,
+    { provide: 'ISTTProvider', useClass: GoogleSttService },
+    { provide: 'IAIProvider', useClass: GeminiAiService },
   ],
   controllers: [ExerciseAttemptsController],
 })
