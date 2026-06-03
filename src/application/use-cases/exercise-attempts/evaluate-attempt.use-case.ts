@@ -53,7 +53,7 @@ export class EvaluateAttemptUseCase {
       target_text: input.targetText,
       accuracy,
       ai_feedback: aiFeedback,
-      ai_model: 'gemini-2.0-flash',
+      ai_model: 'gemini-2.5-flash',
       duration_seconds: 0, // Duration could be extracted if needed, setting 0 for now
     });
 
