@@ -1,12 +1,12 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { TOKENS } from '../../../shared/injection-tokens';
 import type { IExerciseRepository, ExerciseFilter } from '../../../domain/repositories/exercise.repository.interface';
-import { Exercise, ExerciseItem } from '../../../domain/entities/exercise.entity';
+import { Exercise, ExerciseItem, ExerciseLevel } from '../../../domain/entities/exercise.entity';
 
 // Create
 export interface CreateExerciseInput {
   title: string;
-  level: 'beginner' | 'intermediate' | 'advanced';
+  level: ExerciseLevel;
   category: string;
   description?: string;
   items: ExerciseItem[];
@@ -53,7 +53,7 @@ export class GetExerciseByIdUseCase {
 export interface UpdateExerciseInput {
   id: string;
   title?: string;
-  level?: 'beginner' | 'intermediate' | 'advanced';
+  level?: ExerciseLevel;
   category?: string;
   description?: string;
   items?: ExerciseItem[];
