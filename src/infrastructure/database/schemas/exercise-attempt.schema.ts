@@ -10,7 +10,7 @@ export class ExerciseAttempt {
   @Prop({ required: true }) item_number!: number;
   @Prop() transcribed_text?: string;
   @Prop({ required: true }) target_text!: string;
-  @Prop({ min: 0, max: 100 }) accuracy?: number;
+  @Prop({ min: 0, max: 100 }) accuracy!: number;
   @Prop() ai_feedback?: string;
   @Prop() ai_model?: string;
   @Prop() duration_seconds?: number;
