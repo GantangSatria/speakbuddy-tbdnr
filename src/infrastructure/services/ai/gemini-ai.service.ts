@@ -44,7 +44,7 @@ Pastikan hasilmu mudah dimengerti ketika diubah menjadi suara oleh sistem text-t
 
     try {
       const response = await this.client.models.generateContent({
-        model: 'gemini-2.0-flash',
+        model: 'gemini-2.5-flash',
         contents: prompt,
       });
 
