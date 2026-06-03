@@ -3,6 +3,17 @@ import { Document } from 'mongoose';
 
 export type UserDocument = User & Document;
 
+export enum SpeechLevel {
+    BEGINNER = 'beginner',
+    INTERMEDIATE = 'intermediate',
+    ADVANCED = 'advanced',
+}
+
+export enum Role {
+  PARENT = 'parent',
+  THERAPIST = 'therapist'
+}
+
 @Schema({ _id: false })
 class Profile {
   @Prop()
@@ -35,8 +46,8 @@ class Child {
   @Prop()
   child_sex!: string;
 
-  @Prop({ enum: ['beginner', 'intermediate', 'advanced'] })
-  speech_level!: string;
+  @Prop({ enum: Object.values(SpeechLevel) })
+  speech_level!: SpeechLevel;
 }
 
 @Schema({ timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } })
@@ -50,8 +61,8 @@ export class User {
   @Prop({ required: true })
   password_hash!: string;
 
-  @Prop({ required: true, enum: ['parent', 'therapist'] })
-  role!: string;
+  @Prop({ required: true, enum: Object.values(Role) })
+  role!: Role;
 
   @Prop({ type: Profile })
   profile?: Profile;
